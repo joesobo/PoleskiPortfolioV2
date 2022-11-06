@@ -1,5 +1,5 @@
 <template>
-	<div class="flex-col inline-flex absolute top-16 mt-8">
+	<div class="flex flex-col w-48 h-full border-r border-[#424958]">
 		<h2 class="text-white">Poleski Portfolio</h2>
 		<RouterLink to="/">Home</RouterLink>
 		<RouterLink to="/projects">Projects</RouterLink>

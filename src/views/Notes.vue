@@ -1,16 +1,9 @@
 <template>
-	<div class="notes">
+	<Page>
 		<h1>This is an notes page</h1>
-	</div>
+	</Page>
 </template>
 
-<style>
-@media (min-width: 1024px) {
-	.notes {
-		min-height: 100vh;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-	}
-}
-</style>
+<script setup lang="ts">
+import Page from '../components/Page.vue'
+</script>
