@@ -1,6 +1,5 @@
 <template>
 	<main class="flex flex-col h-full">
-		
 		<!-- Body -->
 		<div class="flex flex-col justify-center items-center h-full">
 			<h1 class="text-bold text-white text-2xl my-5">No file is open</h1>
