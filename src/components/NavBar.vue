@@ -57,16 +57,20 @@ let tabState: Ref<Tab[]> = ref([
 ])
 
 const AddNewTab = (tab?: Tab) => {
+	// If the tab already exists, return
 	if (tab && tabState.value.some((t) => t.url === tab.url)) return
 
+	// If the tab is passed, add it to the tab state
 	if (tab) {
 		activeRoute.value = tab.url
 		tabState.value.push(tab)
 		return
 	}
 
+	// If the new tab already exists, return
 	if (tabState.value.some((tab) => tab.url === '/newTab')) return
 
+	// Add the default newTab to the tab state
 	activeRoute.value = '/newTab'
 	tabState.value.push({
 		id: tabState.value.length,
@@ -76,6 +80,7 @@ const AddNewTab = (tab?: Tab) => {
 }
 
 const CloseTab = (id: number) => {
+	// If there is only one tab, reset the tab state
 	if (tabState.value.length === 1) {
 		tabState.value = [
 			{
@@ -89,8 +94,12 @@ const CloseTab = (id: number) => {
 		return
 	}
 
+	// If the tab is active, set the next active tab
 	for (let i = 0; i < tabState.value.length; i++) {
-		if (activeRoute.value === tabState.value[i].url) {
+		if (
+			activeRoute.value === tabState.value[i].url &&
+			tabState.value.find((tab) => tab.id === id)?.url === activeRoute.value
+		) {
 			if (i > 0) {
 				activeRoute.value = tabState.value[i - 1].url
 				router.push(activeRoute.value)
@@ -107,6 +116,7 @@ const CloseTab = (id: number) => {
 		}
 	}
 
+	// Remove the tab
 	tabState.value = tabState.value.filter((tab) => tab.id !== id)
 }
 
@@ -142,18 +152,13 @@ const GetNameFromPath = (path: string) => {
 }
 
 watch(route, (newRoute) => {
+	// If the tab already exists, set it as the active tab
 	if (tabState.value.some((t) => t.url === newRoute.path)) {
 		activeRoute.value = newRoute.path
 		return
 	}
 
-	if (tabState.value.length === 1 && tabState.value[0].url === '/newTab') {
-		activeRoute.value = newRoute.path
-		tabState.value[0].url = newRoute.path
-		tabState.value[0].name = GetNameFromPath(newRoute.path)
-		return
-	}
-
+	// If the default newTab exists, update it
 	if (tabState.value.some((tab) => tab.url === '/newTab')) {
 		const index = tabState.value.findIndex((tab) => tab.url === '/newTab')
 
@@ -163,6 +168,7 @@ watch(route, (newRoute) => {
 		return
 	}
 
+	// Add a new tab
 	AddNewTab({
 		id: tabState.value.length,
 		name: GetNameFromPath(newRoute.path),
