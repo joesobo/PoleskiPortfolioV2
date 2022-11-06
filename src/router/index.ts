@@ -31,6 +31,10 @@ const router = createRouter({
 			path: '/projects',
 			name: 'projects',
 			component: () => import('../views/Projects.vue'),
+		},{
+			path: '/newTab',
+			name: 'newTab',
+			component: () => import('../views/NewTab.vue'),
 		},
 	],
 })
