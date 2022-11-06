@@ -9,15 +9,24 @@ module.exports = {
 		'@vue/eslint-config-typescript',
 		'@vue/eslint-config-prettier',
 		'@vue/prettier',
-		'@vue/prettier/@typescript-eslint',
 	],
 	overrides: [
 		{
 			files: ['cypress/e2e/**/*.{cy,spec}.{js,ts,jsx,tsx}'],
 			extends: ['plugin:cypress/recommended'],
 		},
+		{
+			files: ['*.config.js'],
+			env: {
+				node: true,
+			},
+		},
 	],
 	parserOptions: {
 		ecmaVersion: 'latest',
+	},
+	rules: {
+		'no-console': 'off',
+		'vue/multi-word-component-names': 'off',
 	},
 }
