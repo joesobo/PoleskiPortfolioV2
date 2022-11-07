@@ -1,5 +1,7 @@
 <template>
-	<div class="flex flex-col w-48 h-full border-l border-[#424958]">
+	<div
+		class="flex flex-col w-48 h-full border-l border-[#424958] fixed right-0"
+	>
 		<h2 class="text-white">Socials</h2>
 		<a href="https://github.com/joesobo" target="_blank"> Github </a>
 		<a href="https://twitter.com/JosephSobo" target="_blank"> Twitter </a>

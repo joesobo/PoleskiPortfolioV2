@@ -13,7 +13,7 @@
 </template>
 
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterView } from 'vue-router'
 import NavBar from './components/NavBar.vue'
 import SideBar from './components/SideBar.vue'
 import SocialBar from './components/SocialBar.vue'
