@@ -1,8 +1,8 @@
 <template>
 	<div
-		class="flex flex-col w-48 h-full border-l border-[#424958] fixed right-0"
+		class="flex flex-col w-48 h-full border-l border-[#424958] fixed right-0 px-2"
 	>
-		<h2 class="text-white">Socials</h2>
+		<h2 class="text-white text-lg mt-4 mb-2">Socials</h2>
 		<a href="https://github.com/joesobo" target="_blank"> Github </a>
 		<a href="https://twitter.com/JosephSobo" target="_blank"> Twitter </a>
 		<a

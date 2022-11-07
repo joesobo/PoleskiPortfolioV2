@@ -1,15 +1,17 @@
 <template>
-	<NavBar />
+	<main>
+		<NavBar />
 
-	<div class="flex h-full">
-		<SideBar />
+		<div class="flex h-full min-h-full">
+			<SideBar />
 
-		<RouterView />
+			<RouterView />
 
-		<SocialBar />
-	</div>
+			<SocialBar />
+		</div>
 
-	<Footer />
+		<Footer />
+	</main>
 </template>
 
 <script setup lang="ts">

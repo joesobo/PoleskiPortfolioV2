@@ -1,5 +1,7 @@
 <template>
-	<main class="flex h-full flex-1 max-w-4xl mx-auto mb-16">
+	<div
+		class="flex h-full overflow-hidden w-full flex-1 max-w-4xl mx-auto mb-16 justify-center items-center"
+	>
 		<slot />
-	</main>
+	</div>
 </template>
