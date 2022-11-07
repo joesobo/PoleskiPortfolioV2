@@ -1,8 +1,8 @@
 <template>
 	<Page>
-		<div class="flex flex-col justify-center items-center h-full w-full">
-			<h1 class="text-bold text-white text-2xl my-5">Home</h1>
-		</div>
+		<div
+			class="flex flex-col justify-center items-center h-screen w-full bg-[url('/TinyTurtleTanksBanner.png')] opacity-50 bg-fixed bg-contain bg-no-repeat bg-center"
+		/>
 	</Page>
 </template>
 
