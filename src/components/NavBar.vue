@@ -3,8 +3,18 @@
 		<div
 			class="flex-none w-48 h-10 border-b border-[#424958] border-r justify-end items-center flex"
 		>
-			<button @click="CloseAllTabs" class="mr-2">
-				<img class="w-5 h-5 bg-white" src="" />
+			<button
+				@click="CloseAllTabs"
+				class="mr-2"
+				@mouseover="hoverCloseAllIcon = true"
+				@mouseleave="hoverCloseAllIcon = false"
+			>
+				<Icon
+					v-if="hoverCloseAllIcon"
+					icon="mdi:close-circle"
+					class="w-5 h-5"
+				/>
+				<Icon v-else icon="mdi:close-circle-outline" class="w-5 h-5" />
 			</button>
 		</div>
 		<div class="flex flex-1 w-full h-10 border-b border-[#424958] pr-2">
@@ -19,14 +29,34 @@
 			>
 				<p>{{ tab.name }}</p>
 
-				<button @click.stop.prevent="CloseTab(tab.id)" class="ml-2">
-					<img class="w-5 h-5 bg-white" src="" />
+				<button
+					@click.stop.prevent="CloseTab(tab.id)"
+					class="ml-2"
+					@mouseover="hoverAddIcon = true"
+					@mouseleave="hoverAddIcon = false"
+				>
+					<Icon v-if="hoverCloseIcon" icon="mdi:close-circle" class="w-5 h-5" />
+					<Icon v-else icon="mdi:close-circle-outline" class="w-5 h-5" />
 				</button>
 			</RouterLink>
 
 			<!-- Add New Tab -->
-			<button @click="AddNewTab()" class="ml-2">
-				<img class="w-5 h-5 bg-white" src="" />
+			<button
+				@click="AddNewTab()"
+				class="ml-2"
+				@mouseover="hoverAddIcon = true"
+				@mouseleave="hoverAddIcon = false"
+			>
+				<Icon
+					v-if="hoverAddIcon"
+					icon="material-symbols:add-circle-rounded"
+					class="w-5 h-5"
+				/>
+				<Icon
+					v-else
+					icon="material-symbols:add-circle-outline-rounded"
+					class="w-5 h-5"
+				/>
 			</button>
 		</div>
 		<div class="flex-none w-48 h-10 border-b border-[#424958] border-l"></div>
@@ -35,10 +65,15 @@
 
 <script setup lang="ts">
 import { ref, type Ref, watch } from 'vue'
+import { Icon } from '@iconify/vue'
 import { useRoute, useRouter } from 'vue-router'
 
 const route = useRoute()
 const router = useRouter()
+
+let hoverCloseAllIcon = ref(false)
+let hoverCloseIcon = ref(false)
+let hoverAddIcon = ref(false)
 
 let activeRoute = ref('/newTab')
 
