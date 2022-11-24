@@ -32,8 +32,8 @@
 				<button
 					@click.stop.prevent="CloseTab(tab.id)"
 					class="ml-2"
-					@mouseover="hoverAddIcon = true"
-					@mouseleave="hoverAddIcon = false"
+					@mouseover="hoverCloseIcon = true"
+					@mouseleave="hoverCloseIcon = false"
 				>
 					<Icon v-if="hoverCloseIcon" icon="mdi:close-circle" class="w-5 h-5" />
 					<Icon v-else icon="mdi:close-circle-outline" class="w-5 h-5" />
