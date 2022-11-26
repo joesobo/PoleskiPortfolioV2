@@ -18,10 +18,10 @@
 								>{{ project.title }}</a
 							>
 							<a :href="project.github">
-								<img class="w-5 h-5 bg-white ml-2" src="" />
+								<Icon icon="mdi:github" class="w-5 h-5 ml-2" />
 							</a>
 							<a v-if="project.demo" :href="project.demo">
-								<img class="w-5 h-5 bg-white ml-2" src="" />
+								<Icon icon="mdi:link-variant" class="w-5 h-5 ml-2" />
 							</a>
 						</div>
 						<p>{{ project.description }}</p>
@@ -51,4 +51,5 @@
 <script setup lang="ts">
 import Page from '../components/Page.vue'
 import { projects } from '../data/projects'
+import { Icon } from '@iconify/vue'
 </script>

@@ -1,6 +1,6 @@
 <template>
 	<Page>
-		<div class="flex flex-col justify-center items-center h-full w-full">
+		<div class="flex flex-col justify-center items-center h-full w-full mt-96">
 			<h1 class="text-bold text-white text-2xl my-5">No file is open</h1>
 			<a href="">Go to file (Ctrl + P)</a>
 			<a href="">Show All Commands (Ctrl + Shift + P)</a>

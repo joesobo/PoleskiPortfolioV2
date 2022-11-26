@@ -20,9 +20,13 @@ main {
 	font-weight: normal;
 }
 
-a,
-.blue {
+a {
 	text-decoration: none;
-	color: rgb(0, 174, 255);
-	transition: 0.4s;
+	color: #00aeff;
+	transition: 0.2s;
+}
+
+a:hover {
+	text-decoration: none;
+	color: #005780;
 }
