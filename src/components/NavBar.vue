@@ -1,214 +1,26 @@
 <template>
-	<nav class="flex w-full justify-center sticky top-0 z-10 bg-[#1e1e1e]">
-		<div
-			class="flex-none w-48 h-10 border-b border-[#424958] border-r justify-end items-center flex"
-		>
-			<button
-				@click="CloseAllTabs"
-				class="mr-2"
-				@mouseover="hoverCloseAllIcon = true"
-				@mouseleave="hoverCloseAllIcon = false"
-			>
+	<nav class="h-12 p-4 w-full flex justify-between bg-white fixed z-10">
+		<div class="flex items-center">
+			<router-link to="/">
 				<Icon
-					v-if="hoverCloseAllIcon"
-					icon="mdi:close-circle"
-					class="w-5 h-5"
+					icon="mdi:lighthouse"
+					class="w-10 h-10 text-dark hover:text-light"
 				/>
-				<Icon v-else icon="mdi:close-circle-outline" class="w-5 h-5" />
-			</button>
+			</router-link>
+			<router-link to="/" class="ml-3 hover:text-light"
+				><h1>Joseph Soboleski</h1></router-link
+			>
 		</div>
-		<div class="flex flex-1 w-full h-10 border-b border-[#424958] pr-2">
-			<!-- Tab -->
-			<RouterLink
-				v-for="tab in tabState"
-				:key="tab.name"
-				:to="tab.url"
-				class="w-32 h-8 border-[#424958] border mt-2 rounded-t-md flex items-center px-2 ml-1 justify-between"
-				:class="tab.url === activeRoute ? 'bg-[#252525]' : 'text-slate-500'"
-				@click="activeRoute = tab.url"
-			>
-				<p>{{ tab.name }}</p>
 
-				<button
-					@click.stop.prevent="CloseTab(tab.id)"
-					class="ml-2"
-					@mouseover="hoverCloseIcon = true"
-					@mouseleave="hoverCloseIcon = false"
-				>
-					<Icon v-if="hoverCloseIcon" icon="mdi:close-circle" class="w-5 h-5" />
-					<Icon v-else icon="mdi:close-circle-outline" class="w-5 h-5" />
-				</button>
-			</RouterLink>
-
-			<!-- Add New Tab -->
-			<button
-				@click="AddNewTab()"
-				class="ml-2"
-				@mouseover="hoverAddIcon = true"
-				@mouseleave="hoverAddIcon = false"
+		<div class="flex items-center">
+			<router-link class="mr-3 hover:text-light" to="/">Home</router-link>
+			<router-link class="hover:text-light" to="/projects"
+				>Projects</router-link
 			>
-				<Icon
-					v-if="hoverAddIcon"
-					icon="material-symbols:add-circle-rounded"
-					class="w-5 h-5"
-				/>
-				<Icon
-					v-else
-					icon="material-symbols:add-circle-outline-rounded"
-					class="w-5 h-5"
-				/>
-			</button>
 		</div>
-		<div class="flex-none w-48 h-10 border-b border-[#424958] border-l"></div>
 	</nav>
 </template>
 
 <script setup lang="ts">
-import { ref, type Ref, watch } from 'vue'
 import { Icon } from '@iconify/vue'
-import { useRoute, useRouter } from 'vue-router'
-
-const route = useRoute()
-const router = useRouter()
-
-let hoverCloseAllIcon = ref(false)
-let hoverCloseIcon = ref(false)
-let hoverAddIcon = ref(false)
-
-let activeRoute = ref('/newTab')
-
-type Tab = {
-	id: number
-	name: string
-	url: string
-}
-
-let tabState: Ref<Tab[]> = ref([
-	{
-		id: 0,
-		name: 'New Tab',
-		url: '/newTab',
-	},
-])
-
-const AddNewTab = (tab?: Tab) => {
-	// If the tab already exists, return
-	if (tab && tabState.value.some((t) => t.url === tab.url)) return
-
-	// If the tab is passed, add it to the tab state
-	if (tab) {
-		activeRoute.value = tab.url
-		tabState.value.push(tab)
-		return
-	}
-
-	// If the new tab already exists, return
-	if (tabState.value.some((tab) => tab.url === '/newTab')) return
-
-	// Add the default newTab to the tab state
-	activeRoute.value = '/newTab'
-	router.push('/newTab')
-	tabState.value.push({
-		id: tabState.value.length,
-		name: 'New Tab',
-		url: '/newTab',
-	})
-}
-
-const CloseTab = (id: number) => {
-	// If there is only one tab, reset the tab state
-	if (tabState.value.length === 1) {
-		tabState.value = [
-			{
-				id: 0,
-				name: 'New Tab',
-				url: '/newTab',
-			},
-		]
-		activeRoute.value = '/newTab'
-		router.push('/newTab')
-		return
-	}
-
-	// If the tab is active, set the next active tab
-	for (let i = 0; i < tabState.value.length; i++) {
-		if (
-			activeRoute.value === tabState.value[i].url &&
-			tabState.value.find((tab) => tab.id === id)?.url === activeRoute.value
-		) {
-			if (i > 0) {
-				activeRoute.value = tabState.value[i - 1].url
-				router.push(activeRoute.value)
-				break
-			} else if (tabState.value.length > 0) {
-				activeRoute.value = tabState.value[1].url
-				router.push(activeRoute.value)
-				break
-			} else {
-				activeRoute.value = '/newTab'
-				router.push(activeRoute.value)
-				break
-			}
-		}
-	}
-
-	// Remove the tab
-	tabState.value = tabState.value.filter((tab) => tab.id !== id)
-}
-
-const CloseAllTabs = () => {
-	tabState.value = [
-		{
-			id: 0,
-			name: 'New Tab',
-			url: '/newTab',
-		},
-	]
-	activeRoute.value = '/newTab'
-	router.push('/newTab')
-}
-
-const GetNameFromPath = (path: string) => {
-	switch (path) {
-		case '/':
-			return 'Home'
-		case '/newTab':
-			return 'New Tab'
-		case '/contact':
-			return 'Contact'
-		case '/about':
-			return 'About'
-		case '/notes':
-			return 'Notes'
-		case '/projects':
-			return 'Projects'
-		default:
-			return 'New Tab'
-	}
-}
-
-watch(route, (newRoute) => {
-	// If the tab already exists, set it as the active tab
-	if (tabState.value.some((t) => t.url === newRoute.path)) {
-		activeRoute.value = newRoute.path
-		return
-	}
-
-	// If the default newTab exists, update it
-	if (tabState.value.some((tab) => tab.url === '/newTab')) {
-		const index = tabState.value.findIndex((tab) => tab.url === '/newTab')
-
-		activeRoute.value = newRoute.path
-		tabState.value[index].url = newRoute.path
-		tabState.value[index].name = GetNameFromPath(newRoute.path)
-		return
-	}
-
-	// Add a new tab
-	AddNewTab({
-		id: tabState.value.length,
-		name: GetNameFromPath(newRoute.path),
-		url: newRoute.path,
-	})
-})
 </script>
