@@ -12,9 +12,17 @@
 			>
 		</div>
 
-		<div class="flex items-center">
-			<router-link class="mr-3 hover:text-accent" to="/">Home</router-link>
-			<router-link class="hover:text-accent" to="/projects"
+		<div class="flex items-center mr-12">
+			<router-link
+				class="mr-3 hover:text-accent"
+				to="/"
+				:class="$route.path === '/' ? 'text-light' : ''"
+				>Home</router-link
+			>
+			<router-link
+				class="hover:text-accent"
+				to="/projects"
+				:class="$route.path === '/projects' ? 'text-light' : ''"
 				>Projects</router-link
 			>
 		</div>

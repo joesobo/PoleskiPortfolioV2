@@ -36,7 +36,7 @@
 				<p class="text-white mt-4 leading-7">
 					I'm currently working on a few projects. See more information
 					<router-link
-						class="text-dark hover:text-black bg-white hover:bg-accent p-1 rounded-md"
+						class="text-dark hover:text-black bg-white hover:bg-accent p-1 rounded-lg"
 						to="/projects"
 						>here</router-link
 					>.
