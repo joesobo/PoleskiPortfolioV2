@@ -5,6 +5,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+	@apply text-dark;
+}
+
 html,
 body,
 #app,

@@ -10,8 +10,9 @@
 				>
 					<NoteBar
 						:rootNote="notes"
+						:activeNoteTitle="activeNote.title"
+						open
 						@setNote="(note) => setActiveNote(note)"
-						:open="false"
 					/>
 				</div>
 			</div>
@@ -55,7 +56,6 @@ marked.setOptions({
 
 const setActiveNote = (note: Note) => {
 	activeNote.value = note
-	console.log(note.content)
 }
 
 const activeNote: Ref<Note> = ref(notes)
@@ -76,5 +76,9 @@ const activeNote: Ref<Note> = ref(notes)
 
 :deep(h1) {
 	margin-top: 32px;
+	font-size: 1.75rem;
+	line-height: 2rem;
+	font-weight: bold;
+	color: #263940;
 }
 </style>

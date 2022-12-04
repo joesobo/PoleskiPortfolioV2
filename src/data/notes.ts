@@ -10,7 +10,13 @@ const rawNotes = import.meta.glob('../notes/**/*.md', {
 })
 const noteTitles = Object.keys(rawNotes)
 
-const cleanNote = (note: string) => {
+const cleanNote = (index: number) => {
+	const titleArray = noteTitles[index].split('/')
+	const note =
+		'# ' +
+		titleArray[titleArray.length - 1].replace('.md', '') +
+		rawNotes[noteTitles[index]]
+
 	return note
 		.split('\n')
 		.filter((line) => !line.startsWith('>'))
@@ -37,7 +43,7 @@ const generateNoteTree = () => {
 				titleSegment.endsWith('.md') &&
 				titleSegment.replace('.md', '') === currentNoteNode.title
 			) {
-				currentNoteNode.content = cleanNote(rawNotes[noteTitles[i]])
+				currentNoteNode.content = cleanNote(i)
 				break
 			}
 
@@ -56,7 +62,7 @@ const generateNoteTree = () => {
 		}
 
 		if (currentNoteNode.title.endsWith('.md')) {
-			currentNoteNode.content = cleanNote(rawNotes[noteTitles[i]])
+			currentNoteNode.content = cleanNote(i)
 		}
 	}
 

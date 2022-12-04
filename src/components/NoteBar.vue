@@ -1,7 +1,11 @@
 <template>
 	<details :open="open" class="cursor-pointer mt-4">
-		<summary class="text-start" @click="toggleState(rootNote)">
-			{{ rootNote.title }}
+		<summary
+			class="text-start text-dark hover:text-accent"
+			:class="activeNoteTitle === rootNote.title ? 'text-light' : ''"
+			@click="toggleState()"
+		>
+			{{ rootNote.title.replace('.md', '') }}
 			<Icon
 				v-if="state && rootNote.children"
 				icon="mdi:chevron-up"
@@ -20,8 +24,9 @@
 			<NoteBar
 				v-for="note in rootNote.children"
 				:key="note.title"
-				:open="false"
 				:rootNote="note"
+				:open="false"
+				:activeNoteTitle="activeNoteTitle"
 				@setNote="(note) => emit('setNote', note)"
 			/>
 		</div>
@@ -35,13 +40,17 @@ import { Icon } from '@iconify/vue'
 
 const emit = defineEmits(['setNote'])
 
-const props = defineProps<{ rootNote: Note; open: boolean }>()
+const props = defineProps<{
+	rootNote: Note
+	open: boolean
+	activeNoteTitle: string
+}>()
 
 const state = ref(props.open)
 
-const toggleState = (note: Note) => {
+const toggleState = () => {
 	state.value = !state.value
-	emit('setNote', note)
+	emit('setNote', props.rootNote)
 }
 </script>
 
