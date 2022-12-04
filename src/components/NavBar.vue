@@ -20,10 +20,16 @@
 				>Home</router-link
 			>
 			<router-link
-				class="hover:text-accent"
+				class="mr-3 hover:text-accent"
 				to="/projects"
 				:class="$route.path === '/projects' ? 'text-light' : ''"
 				>Projects</router-link
+			>
+			<router-link
+				class="hover:text-accent"
+				to="/notes"
+				:class="$route.path === '/notes' ? 'text-light' : ''"
+				>Notes</router-link
 			>
 		</div>
 	</nav>

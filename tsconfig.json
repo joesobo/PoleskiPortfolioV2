@@ -12,6 +12,8 @@
 		}
 	],
 	"compilerOptions": {
+		"target": "esnext",
+		"module": "esnext",
 		"skipLibCheck": true,
 		"esModuleInterop": true,
 		"allowSyntheticDefaultImports": true,

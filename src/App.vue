@@ -1,5 +1,8 @@
 <template>
-	<main class="overflow-hidden flex flex-col">
+	<main
+		class="overflow-hidden flex flex-col"
+		:class="$route.path !== '/notes' ? 'overflow-hidden' : 'overflow-scroll'"
+	>
 		<NavBar />
 
 		<div class="h-16 bg-black w-full fixed top-12" />
