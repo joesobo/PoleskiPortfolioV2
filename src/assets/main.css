@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap');
+@import 'syntax.css';
 
 @tailwind base;
 @tailwind components;
@@ -9,5 +10,5 @@ body,
 #app,
 main {
 	height: 100%;
-	background-color: #DAD9D5;
+	background-color: #dad9d5;
 }

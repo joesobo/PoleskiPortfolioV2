@@ -8,27 +8,19 @@
 				<div
 					class="h-2/3 flex flex-col border-r border-r-black overflow-y-scroll"
 				>
-					<div
-						v-for="note in Object.keys(notes)"
-						:key="note"
-						class="mt-4 text-dark hover:text-accent"
-					>
-						<button
-							@click="setActiveNote(note)"
-							class="text-left"
-							:class="note === activeNote ? 'text-light font-bold' : ''"
-						>
-							{{ cleanTitle(note) }}
-						</button>
-					</div>
+					<NoteBar
+						:rootNote="notes"
+						@setNote="(note) => setActiveNote(note)"
+						:open="false"
+					/>
 				</div>
 			</div>
 
 			<!-- Section 2 -->
 			<div class="w-full pl-[calc(20%)] pr-40">
 				<div
-					v-if="activeNote"
-					v-html="marked.parse(cleanNote(activeNote))"
+					v-if="activeNote.content"
+					v-html="marked.parse(activeNote.content)"
 					class="mb-44"
 				/>
 			</div>
@@ -40,43 +32,49 @@
 import { ref } from 'vue'
 import type { Ref } from 'vue'
 import { marked } from 'marked'
+import hljs from 'highlight.js'
+import { notes } from '../data/notes'
+import type { Note } from '../data/notes'
+import NoteBar from '../components/NoteBar.vue'
 
-const setActiveNote = (note: string) => {
-	activeNote.value = notes[note]
+marked.setOptions({
+	renderer: new marked.Renderer(),
+	highlight: function (code, lang) {
+		const language = hljs.getLanguage(lang) ? lang : 'plaintext'
+		return hljs.highlight(code, { language }).value
+	},
+	langPrefix: 'hljs language-',
+	pedantic: false,
+	gfm: true,
+	breaks: false,
+	sanitize: false,
+	smartLists: true,
+	smartypants: false,
+	xhtml: false,
+})
+
+const setActiveNote = (note: Note) => {
+	activeNote.value = note
+	console.log(note.content)
 }
 
-const notes = import.meta.glob('../notes/**/*.md', { eager: true, as: 'raw' })
-const activeNote: Ref<string> = ref(notes[Object.keys(notes)[0]])
-
-const cleanNote = (note: string) => {
-	return note
-		.split('\n')
-		.filter((line) => !line.startsWith('>'))
-		.filter((line) => line !== '# `= this.file.name`')
-		.filter((line) => line !== '`= this.file.name`')
-		.filter((line) => line !== '\n')
-		.join('\n')
-}
-
-const cleanTitle = (title: string) => {
-	return title.replace('../notes/3. Resources/', '').replace('.md', '')
-}
+const activeNote: Ref<Note> = ref(notes)
 </script>
 
 <style scoped>
 :deep(p),
 :deep(ul),
 :deep(pre),
-:deep(li) {
-	margin-top: 16px;
-}
-
-:deep(h1),
+:deep(li),
 :deep(h2),
 :deep(h3),
 :deep(h4),
 :deep(h5),
 :deep(h6) {
+	margin-top: 16px;
+}
+
+:deep(h1) {
 	margin-top: 32px;
 }
 </style>
