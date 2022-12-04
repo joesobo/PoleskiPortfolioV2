@@ -2,7 +2,7 @@
 	<details :open="open" class="cursor-pointer mt-4">
 		<summary
 			class="text-start text-dark hover:text-accent"
-			:class="activeNoteTitle === rootNote.title ? 'text-light' : ''"
+			:class="activeNoteTitle === rootNote.title ? 'text-light font-bold' : ''"
 			@click="toggleState()"
 		>
 			{{ rootNote.title.replace('.md', '') }}

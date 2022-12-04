@@ -2,7 +2,7 @@
 	<div class="relative flex justify-center">
 		<div class="w-full flex items-center justify-center">
 			<img
-				:src="treesImg"
+				:src="oceanImg"
 				class="w-full object-cover opacity-60 h-[calc(100vh-224px)]"
 			/>
 		</div>
@@ -47,5 +47,5 @@
 </template>
 
 <script setup lang="ts">
-import treesImg from '../assets/trees.jpg'
+import oceanImg from '../assets/ocean.jpg'
 </script>

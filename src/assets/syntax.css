@@ -12,6 +12,10 @@ code {
 	border-radius: 4px;
 }
 
+hr {
+	border-color: #263940;
+}
+
 pre code.hljs {
 	display: block;
 	overflow-x: auto;

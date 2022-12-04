@@ -12,11 +12,14 @@ const noteTitles = Object.keys(rawNotes)
 
 const cleanNote = (index: number) => {
 	const titleArray = noteTitles[index].split('/')
+	// Add title to note
 	const note =
 		'# ' +
 		titleArray[titleArray.length - 1].replace('.md', '') +
+		'\n' +
 		rawNotes[noteTitles[index]]
 
+	// Remove frontmatter
 	return note
 		.split('\n')
 		.filter((line) => !line.startsWith('>'))
@@ -39,6 +42,12 @@ const generateNoteTree = () => {
 		let currentNoteNode = rootNote
 
 		for (const titleSegment of titleArray) {
+			// Skip templates
+			if (titleArray.includes('Templates')) {
+				break
+			}
+
+			// Set folder note content
 			if (
 				titleSegment.endsWith('.md') &&
 				titleSegment.replace('.md', '') === currentNoteNode.title
@@ -61,6 +70,7 @@ const generateNoteTree = () => {
 			currentNoteNode = childNoteNode
 		}
 
+		// Set file note content
 		if (currentNoteNode.title.endsWith('.md')) {
 			currentNoteNode.content = cleanNote(i)
 		}

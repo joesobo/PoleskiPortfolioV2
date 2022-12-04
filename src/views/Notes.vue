@@ -2,7 +2,7 @@
 	<div class="flex flex-col h-full px-16">
 		<h1 class="text-3xl font-bold text-dark mt-4 fixed">Notes</h1>
 
-		<div class="flex h-full pt-32">
+		<div class="flex h-full pt-24">
 			<!-- Section 1 -->
 			<div class="w-1/6 h-full fixed">
 				<div
@@ -65,20 +65,43 @@ const activeNote: Ref<Note> = ref(notes)
 :deep(p),
 :deep(ul),
 :deep(pre),
-:deep(li),
-:deep(h2),
-:deep(h3),
-:deep(h4),
-:deep(h5),
-:deep(h6) {
+:deep(li) {
 	margin-top: 16px;
 }
 
 :deep(h1) {
-	margin-top: 32px;
-	font-size: 1.75rem;
-	line-height: 2rem;
+	font-size: 1.875rem; /* 30px */
+	line-height: 2.25rem; /* 36px */
 	font-weight: bold;
-	color: #263940;
+}
+
+:deep(h2) {
+	font-size: 1.75rem; /* 28px */
+	line-height: 2rem; /* 32px */
+	margin-top: 32px;
+}
+
+:deep(h3) {
+	font-size: 1.5rem; /* 24px */
+	line-height: 1.75rem; /* 28px */
+	margin-top: 28px;
+}
+
+:deep(h4) {
+	font-size: 1.25rem; /* 20px */
+	line-height: 1.75rem; /* 28px */
+	margin-top: 28px;
+}
+
+:deep(h5) {
+	font-size: 1.125rem; /* 18px */
+	line-height: 1.5rem; /* 24px */
+	margin-top: 24px;
+}
+
+:deep(h6) {
+	font-size: 1rem; /* 16px */
+	line-height: 1.25rem; /* 20px */
+	margin-top: 16px;
 }
 </style>

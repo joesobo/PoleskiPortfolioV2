@@ -5,9 +5,9 @@
 	>
 		<NavBar />
 
-		<div class="h-16 bg-black w-full fixed top-12" />
+		<div class="h-16 bg-dark w-full fixed top-12" />
 		<RouterView class="mt-28" />
-		<div class="h-16 bg-black w-full fixed bottom-12" />
+		<div class="h-16 bg-dark w-full fixed bottom-12" />
 
 		<Footer />
 	</main>
