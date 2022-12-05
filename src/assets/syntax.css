@@ -2,6 +2,17 @@ blockquote {
 	/* TODO: better blockquotes for >Example */
 }
 
+pre {
+	width: fit-content;
+}
+
+pre,
+code {
+	background: #20242b;
+	padding: 4px 8px;
+	border-radius: 4px;
+}
+
 code {
 	text-align: left;
 	overflow-x: auto;
@@ -19,11 +30,11 @@ hr {
 pre code.hljs {
 	display: block;
 	overflow-x: auto;
-	padding: 1em;
+	padding: 4px 8px;
 }
 code.hljs {
 	line-height: 1.5;
-	padding: 1em;
+	padding: 4px 8px;
 	margin: 16px 0px;
 	padding: 3px 5px;
 }
