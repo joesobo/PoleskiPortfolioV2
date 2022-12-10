@@ -36,12 +36,12 @@
 					>
 						Contact Me
 					</a>
-					<a
-						href="/projects"
+					<router-link
+						to="/projects"
 						class="py-2 px-6 bg-dark hover:bg-[#1a2b31] text-white rounded-md"
 					>
 						See Portfolio
-					</a>
+					</router-link>
 				</div>
 			</div>
 		</div>

@@ -42,19 +42,19 @@
 						{{ description }}
 					</p>
 					<div class="flex mt-8">
-						<a href="{{ activeProject.github }}" target="_blank" class="mr-2"
+						<router-link :to="activeProject.github" target="_blank" class="mr-2"
 							><Icon
 								icon="carbon:logo-github"
 								class="w-6 h-6 text-dark hover:text-accent"
-						/></a>
-						<a
+						/></router-link>
+						<router-link
 							v-if="activeProject.demo"
-							href="{{ activeProject.demo }}"
+							:to="activeProject.demo"
 							target="_blank"
 							><Icon
 								icon="material-symbols:open-in-new"
 								class="w-6 h-6 text-dark hover:text-accent"
-						/></a>
+						/></router-link>
 					</div>
 				</div>
 			</div>
