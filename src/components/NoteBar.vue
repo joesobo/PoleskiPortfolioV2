@@ -27,7 +27,7 @@
 				:rootNote="note"
 				:open="false"
 				:activeNoteTitle="activeNoteTitle"
-				@setNote="(note) => emit('setNote', note)"
+				@setNote="(note: Note) => emit('setNote', note)"
 			/>
 		</div>
 	</details>
