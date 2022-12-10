@@ -37,6 +37,21 @@
 					>
 						{{ description }}
 					</p>
+					<div class="flex mt-8">
+						<a href="{{ activeProject.github }}" target="_blank" class="mr-2"
+							><Icon
+								icon="carbon:logo-github"
+								class="w-6 h-6 text-dark hover:text-accent"
+						/></a>
+						<a
+							v-if="activeProject.demo"
+							href="{{ activeProject.demo }}"
+							target="_blank"
+							><Icon
+								icon="material-symbols:open-in-new"
+								class="w-6 h-6 text-dark hover:text-accent"
+						/></a>
+					</div>
 				</div>
 			</div>
 
