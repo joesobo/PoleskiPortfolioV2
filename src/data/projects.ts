@@ -1,5 +1,6 @@
 import codegraphyImg from '../assets/CodeGraphy.png'
-import portfolioImg from '../assets/Portfolio.png'
+import portfolioV1Img from '../assets/portfoliov1.png'
+import portfolioV2Img from '../assets/portfoliov2.png'
 import tinyturtletankImg from '../assets/TinyTurtleTanks.jpg'
 import plantImg from '../assets/Plant.png'
 import marchingsquaresImg from '../assets/MarchingSquares.png'
@@ -18,7 +19,7 @@ export type Project = {
 export const projects: Project[] = [
 	{
 		title: 'CodeGraphy',
-		tech: ['Vue', 'Tailwind', 'Typescript'],
+		tech: ['Vue 3', 'TailwindCSS', 'Typescript'],
 		description: [
 			'CodeGraphy is a VSCode extension that helps developers visualize the connections between files in their project. It uses a 2D force-based graph to show how files are related to each other, making it easy to see the structure of a project at a glance.',
 			'To use CodeGraphy, simply open a project in VSCode and run the "CodeGraphy: Focus on CodeGraphy View" command. The extension will scan the project and generate a graph showing the connections between the files. Each file is represented as a node in the graph, and the connections between nodes represent the dependencies between files.',
@@ -38,9 +39,19 @@ export const projects: Project[] = [
 			'On this site, you will find a selection of my recent projects, as well as information about my education and experience. I have included descriptions of the technologies and techniques that I used in each project, as well as links to the code and live demos where available.',
 			'Overall, I am happy with how my portfolio turned out. It is a clean and professional-looking site that showcases my work and experiences as a software engineer. I enjoyed the process of coding it, and I learned a lot along the way.',
 		],
-		img: portfolioImg,
-		github: 'https://github.com/joesobo/TinyTurtleTanks',
-		demo: 'https://poleski.itch.io/tiny-turtle-tanks',
+		img: portfolioV1Img,
+		github: 'https://github.com/joesobo/PoleskiPortfolio',
+		demo: 'https://poleskiportfolio.netlify.app',
+	},
+	{
+		title: 'Poleski Portfolio v2',
+		tech: ['Vue 3', 'Vite', 'Typescript', 'TailwindCSS'],
+		description: [
+			'This site right here! It contains a bunch of information about recent projects and my experiences as a Software Engineer.',
+		],
+		img: portfolioV2Img,
+		github: 'https://github.com/joesobo/PoleskiPortfolioV2',
+		demo: 'https://poleski.dev/',
 	},
 	{
 		title: 'Tiny Turtle Tanks',
