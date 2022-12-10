@@ -6,41 +6,43 @@
 				class="w-full object-cover opacity-60 h-[calc(100vh-224px)]"
 			/>
 		</div>
-		<div class="absolute top-1/3 w-1/2 mx-auto flex justify-between">
+
+		<div class="absolute top-1/3 w-2/3 mx-auto flex justify-between">
 			<img
 				src="https://avatars.githubusercontent.com/u/26047842?v=4"
-				class="rounded-full w-72 h-72 mr-16"
+				class="rounded-full w-96 h-96 mr-8"
 			/>
-			<div class="flex flex-col w-1/2 bg-black rounded-lg p-4">
-				<h1 class="text-2xl text-white">Hi! My name is Joseph Soboleski</h1>
-				<p class="text-white mt-10">
-					I'm a Software Engineer who loves to build things. I make websites,
-					apps, and sometimes games. A focus for me is to make tools that are
-					accessible and easy to use for developers.
+			<div class="flex flex-col w-3/5 bg-black rounded-lg p-8">
+				<h1 class="text-3xl font-bold text-white">
+					Hi! My name is Joseph Soboleski.
+				</h1>
+				<h2 class="text-3xl text-white mt-4">
+					I'm a Software Engineer who loves to build things.
+				</h2>
+				<p class="text-white my-16">
+					I make
+					<span class="text-accent font-bold">websites</span>,
+					<span class="text-accent font-bold">tools</span>, and sometimes
+					<span class="text-accent font-bold">games</span>. I am always eager to
+					learn and explore new technologies. A huge focus for me is to make
+					tools that are accessible and easy to use. I'm currently working on a
+					few different projects.
 				</p>
 
-				<!-- <p class="text-white mt-4">
-					As a Software Engineer with a focus on accessibility, I have a deep
-					understanding of the importance of creating user-friendly and
-					inclusive digital experiences. I have experience using frontend
-					technologies such as Vue and Nuxt, and I am committed to incorporating
-					best practices for accessibility into my work.
-				</p>
-
-				<p class="text-white mt-4">
-					In addition to my technical skills, I am a collaborative team player
-					and a strong communicator. I am always looking for ways to improve the
-					user experience and drive innovation as well as my own abilities.
-				</p> -->
-
-				<p class="text-white mt-4 leading-7">
-					I'm currently working on a few projects. See more information
-					<router-link
-						class="text-dark hover:text-black bg-white hover:bg-accent p-1 rounded-lg"
-						to="/projects"
-						>here</router-link
-					>.
-				</p>
+				<div class="flex">
+					<a
+						href="mailto:soboleskijoe@gmail.com"
+						class="py-2 px-6 bg-accent hover:bg-light text-white rounded-md mr-4"
+					>
+						Contact Me
+					</a>
+					<a
+						href="/projects"
+						class="py-2 px-6 bg-dark hover:bg-[#1a2b31] text-white rounded-md"
+					>
+						See Portfolio
+					</a>
+				</div>
 			</div>
 		</div>
 	</div>

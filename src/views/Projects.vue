@@ -27,9 +27,13 @@
 			<!-- Section 2 -->
 			<div class="w-full pr-40">
 				<div v-if="activeProject" class="flex flex-col">
-					<h2 class="text-2xl text-dark mt-4">
+					<a
+						:href="activeProject.demo ?? activeProject.github"
+						target="_blank"
+						class="text-2xl text-dark hover:text-accent mt-4"
+					>
 						{{ activeProject.title }}
-					</h2>
+					</a>
 					<p
 						class="text-dark mt-8"
 						v-for="description in activeProject.description"
@@ -56,13 +60,19 @@
 			</div>
 
 			<!-- Section 3 -->
-			<div class="w-1/2 min-w-16">
+			<!-- <div class="w-1/2 min-w-16"> -->
+			<a
+				class="w-1/2 min-w-16"
+				:href="activeProject.demo ?? activeProject.github"
+				target="_blank"
+			>
 				<img
 					v-if="activeProject"
 					:src="activeProject.img"
 					class="w-full min-w-16 bg-black aspect-square object-contain rounded-lg"
 				/>
-			</div>
+			</a>
+			<!-- </div> -->
 		</div>
 	</div>
 </template>
