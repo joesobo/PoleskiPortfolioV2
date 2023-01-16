@@ -5,6 +5,6 @@
 > References:  [[🧀Cooking]] 
 > Links: 
 
-![Youtube Link]() 
+![Youtube Link](https://www.youtube.com/watch?v=yoGjRKkC-Sw&t) 
 
 Recipe: 
