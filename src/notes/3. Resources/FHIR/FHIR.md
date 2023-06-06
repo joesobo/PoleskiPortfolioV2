@@ -15,6 +15,7 @@ FHIR (**Fast Healthcare Interoperability Resources**) is a standard in healthcar
 - [[Extension]]
 - [[Plugin]]
 - [[FHIR Engine]]
+- [[Questionnaire]]
 
 ### [[Extension]] vs [[Plugin]]
 - An extension is a feature that represents data not covered in the standard FHIR [[Resource]] type
@@ -32,4 +33,7 @@ FHIR (**Fast Healthcare Interoperability Resources**) is a standard in healthcar
 - We define an [[Extension]] to handle this additional info. This extension contains its own [[Element]] like 'language' and 'proficiencyLevel'
 - If the Patients proficiencyLevel is too low for English we want to translate it so they can understand the form better. Todo this we install a translation [[Plugin]] into the [[FHIR Engine]] that interactions with the language [[Extension]] to choose their preferred language
 
-## Extensions
+
+
+
+
