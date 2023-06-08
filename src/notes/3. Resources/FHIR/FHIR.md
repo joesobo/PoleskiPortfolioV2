@@ -16,6 +16,7 @@ FHIR (**Fast Healthcare Interoperability Resources**) is a standard in healthcar
 - [[Plugin]]
 - [[FHIR Engine]]
 - [[Questionnaire]]
+- [[StructureDefinition]]
 
 ### [[Extension]] vs [[Plugin]]
 - An extension is a feature that represents data not covered in the standard FHIR [[Resource]] type
